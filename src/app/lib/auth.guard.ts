@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
         const user = this.authenticationService.userValue;
         if (user) {
             return true;
-        }
+        } 
         // not logged in so redirect to login page with the return url
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
@@ -32,7 +32,7 @@ export class RoleGuard implements CanActivate {
         if (route.data.roles && route.data.roles.indexOf(user.role) === -1) {
             this.router.navigate(['/unauthorized']);
             return false;
-        }
+        }     
         return true;
     }
 }

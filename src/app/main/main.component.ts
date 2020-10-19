@@ -8,12 +8,12 @@ import { BaseComponent } from '../lib/base-component';
 })
 export class MainComponent extends BaseComponent implements OnInit {
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector) { 
     super(injector);
   }
 
   ngOnInit(): void {
-
+     
   }
 
 }

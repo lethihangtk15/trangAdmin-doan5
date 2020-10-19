@@ -13,7 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
         path: 'user',
         component: UserComponent,
       },
-  ]),
+  ]),  
   ]
 })
 export class UserModule { }

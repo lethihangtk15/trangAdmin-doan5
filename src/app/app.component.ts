@@ -8,18 +8,18 @@ import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
 export class AppComponent implements OnInit,AfterViewInit {
   title = 'admin';
   constructor(private renderer: Renderer2){}
-  ngOnInit() {
+  ngOnInit() { 
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit() { 
    // this.loadScripts();
   }
 
   public loadScripts() {
     this.renderExternalScript('assets/js/ace-elements.min.js').onload = () => {
     }
-
+   
     this.renderExternalScript('assets/js/ace-extra.min.js').onload = () => {
     }
     this.renderExternalScript('assets/js/ace.min.js').onload = () => {
@@ -35,5 +35,5 @@ export class AppComponent implements OnInit,AfterViewInit {
       this.renderer.appendChild(document.body, script);
       return script;
     }
-
+  
 }

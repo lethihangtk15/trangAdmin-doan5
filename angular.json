@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "admin-doan5": {
+    "admin": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/admin-doan5",
+            "outputPath": "dist/admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,20 +25,20 @@
             ],
             "styles": [
               "src/assets/css/bootstrap.min.css",
-              "src/assets/font-awesome/4.2.0/css/font-awesome.min.css",
-              "src/assets/fonts/fonts.googleapis.com.css",
+              "src/assets/font-awesome/4.2.0/css/font-awesome.min.css",      
+              "src/assets/fonts/fonts.googleapis.com.css",        
               "src/assets/css/ace.min.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "src/styles.css"
+              "src/styles.css"      
             ],
             "scripts": [
               "src/assets/js/jquery.2.1.1.min.js",
               "src/assets/js/bootstrap.min.js",
-              "src/assets/js/ace-elements.min.js",
+              "src/assets/js/ace-elements.min.js", 
               "src/assets/js/ace-extra.min.js",
-              "src/assets/js/ace.min.js" 
+              "src/assets/js/ace.min.js"                       
             ]
           },
           "configurations": {
@@ -75,18 +75,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "admin-doan5:build"
+            "browserTarget": "admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "admin-doan5:build:production"
+              "browserTarget": "admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "admin-doan5:build"
+            "browserTarget": "admin:build"
           }
         },
         "test": {
@@ -123,19 +123,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "admin-doan5:serve"
+            "devServerTarget": "admin:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "admin-doan5:serve:production"
+              "devServerTarget": "admin:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "admin-doan5",
+  "defaultProject": "admin",
   "cli": {
-    "analytics": "9a647890-8492-48cc-abf8-fd843d8e2d7c"
+    "analytics": "9e4174ca-a4c0-4af9-aca4-6db3b02da64f"
   }
 }

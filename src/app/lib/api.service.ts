@@ -22,7 +22,7 @@ export class ApiService {
         map(res => {
           return res;
         })
-      );
+      );      
   }
 
   get(url: string) {
@@ -35,6 +35,6 @@ export class ApiService {
         map(res  => {
           return res;
         })
-      );
-  }
+      );       
+  } 
 }

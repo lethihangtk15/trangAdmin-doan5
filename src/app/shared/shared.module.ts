@@ -34,7 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CalendarModule,
     DropdownModule,
     FileUploadModule,
-    NgbModule
+    NgbModule 
   ],
 })
 export class SharedModule { }

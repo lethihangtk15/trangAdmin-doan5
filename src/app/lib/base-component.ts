@@ -13,18 +13,18 @@ export class BaseComponent {
    public unsubscribe = new Subject();
    public _api: ApiService;
    public _route: ActivatedRoute;
-   constructor(injector: Injector) {
+   constructor(injector: Injector) { 
           this.today = new Date();
           this.dateFormat = "dd/mm/yy";
           this.genders =  [
             {label:'Nam',value:'Nam'},
             {label:'Nữ',value:'Nữ'},
             {label:'Khác',value:'Khác'}
-          ];
+          ];   
           this.roles =  [
             {label:'Admin',value:'Admin'},
             {label:'User',value:'User'}
-          ];
+          ];   
           this.locale_vn={
             "firstDayOfWeek": 1,
             "dayNames": [

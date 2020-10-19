@@ -9,7 +9,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   public menus = [
   {name :'Người dùng', url:'',icon:'user',childs:[{name:'Quản lý người dùng',url:'user/user'},{name:'Đăng xuất', url:''},{name:'Đăng nhập', url:'/login'}]},
   {name:'Hàng hóa',url:'',icon:'signal',childs:[{name:'Quản lý đơn hàng',url:'/product/order'},{name:'Quản lý loại hàng',url:'/product/type'},{name:'Quản lý sản phẩm',url:'/product/product'}]}];
-  constructor() { }
+  constructor() { } 
   ngOnInit(): void {
   }
   ngAfterViewInit() {

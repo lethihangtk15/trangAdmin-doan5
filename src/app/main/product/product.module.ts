@@ -7,7 +7,7 @@ import { TypeComponent } from './type/type.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     OrderComponent,ProductComponent,TypeComponent
   ],
   imports: [
@@ -26,7 +26,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
         path: 'type',
         component: TypeComponent,
       },
-  ]),
+  ]),  
   ]
 })
 export class ProductModule { }

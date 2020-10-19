@@ -11,10 +11,10 @@ export class FileNotFoundComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService,private router: Router) { }
   ngOnInit(): void {
     const user = this.authenticationService.userValue;
-    if(user) {
+    if(user) { 
       this.router.navigate(['/not-found']);
-    } else {
+    } else { 
       this.router.navigate(['/login']);
     }
-  }
+  } 
 }

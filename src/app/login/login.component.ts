@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
     this.loading = true;
     this.authenticationService
       .login(this.f.username.value, this.f.password.value)
@@ -62,10 +61,12 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data) => {
           this.router.navigate([this.returnUrl]);
+          console.log("okk");
         },
         (error) => {
+          console.log("fail");
           this.error = error;
-          this.loading = false;   
+          this.loading = false;
         }
       );
   }

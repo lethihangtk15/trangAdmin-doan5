@@ -74,7 +74,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
           product_content:value.product_content,
           quantity:+value.quantity,
           sale:+value.sale,
-          product_status:value.product_status,
+          product_status:+value.product_status,
           product_desc:value.product_desc,
           product_price: +value.product_price,
           };
@@ -96,7 +96,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
           product_content:value.product_content,
           quantity:+value.quantity,
           sale:+value.sale,
-          product_status:value.product_status,
+          product_status:+value.product_status,
           product_desc:value.product_desc,
           product_price: +value.product_price,
           product_id:this.product.product_id,

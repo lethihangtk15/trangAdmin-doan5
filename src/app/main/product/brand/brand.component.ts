@@ -6,13 +6,14 @@ import 'rxjs/add/operator/takeUntil';
 declare var $: any;
 
 @Component({
-  selector: 'app-type',
-  templateUrl: './type.component.html',
-  styleUrls: ['./type.component.css']
+  selector: 'app-brand',
+  templateUrl: './brand.component.html',
+  styleUrls: ['./brand.component.css']
 })
-export class TypeComponent extends BaseComponent implements OnInit {
-  public categorys: any;
-  public category: any;
+
+export class BrandComponent extends BaseComponent implements OnInit {
+  public brands: any;
+  public brand: any;
   public totalRecords:any;
   public pageSize = 3;
   public page = 1;
@@ -22,7 +23,7 @@ export class TypeComponent extends BaseComponent implements OnInit {
   public doneSetupForm: any;
   public showUpdateModal:any;
   public isCreate:any;
-  public parent: 10;
+  public parent: 1;
   submitted = false;
   @ViewChild(FileUpload, { static: false }) file_image: FileUpload;
   constructor(private fb: FormBuilder, injector: Injector) {
@@ -31,16 +32,17 @@ export class TypeComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.formsearch = this.fb.group({
-      'category_name': [''],
+      'brand_name': [''],
     });
 
 
    this.search();
   }
 
+
   loadPage(page) {
-    this._api.post('/api/category/search-category',{page: page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
-      this.categorys = res.data;
+    this._api.post('/api/brand/search-brand',{page: page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
+      this.brands = res.data;
       this.totalRecords =  res.totalItems;
       this.pageSize = res.pageSize;
       });
@@ -48,9 +50,9 @@ export class TypeComponent extends BaseComponent implements OnInit {
 
   search() {
     this.page = 1;
-    this.pageSize = 5;
-    this._api.post('/api/category/search-category',{page: this.page, pageSize: this.pageSize, category_name: this.formsearch.get('category_name').value}).takeUntil(this.unsubscribe).subscribe(res => {
-      this.categorys = res.data;
+    this.pageSize = 10;
+    this._api.post('/api/brand/search-brand',{page: this.page, pageSize: this.pageSize, brand_name: this.formsearch.get('brand_name').value}).takeUntil(this.unsubscribe).subscribe(res => {
+      this.brands = res.data;
       this.totalRecords =  res.totalItems;
       this.pageSize = res.pageSize;
       });
@@ -69,12 +71,12 @@ export class TypeComponent extends BaseComponent implements OnInit {
       this.getEncodeFromImage(this.file_image).subscribe((data: any): void => {
         let data_image = data == '' ? null : data;
         let tmp = {
-            parent_category_id:this.parent,
-            category_name:value.category_name,
-           desc:value.desc,
+            parent_brand_id:this.parent,
+           brand_name:value.brand_name,
+          //  desc:value.desc,
            url:value.url,
           };
-        this._api.post('/api/category/create-category',tmp).takeUntil(this.unsubscribe).subscribe(res => {
+        this._api.post('/api/brand/create-brand',tmp).takeUntil(this.unsubscribe).subscribe(res => {
           alert('Thêm thành công');
           this.search();
           this.closeModal();
@@ -84,12 +86,12 @@ export class TypeComponent extends BaseComponent implements OnInit {
       this.getEncodeFromImage(this.file_image).subscribe((data: any): void => {
         let data_image = data == '' ? null : data;
         let tmp = {
-          category_name:value.category_name,
-           desc:value.desc,
+          brand_name:value.brand_name,
+          //  desc:value.desc,
            url:value.url,
-           category_id:this.category.category_id,
+          brand_id:this.brand.brand_id,
           };
-        this._api.post('/api/category/update-category',tmp).takeUntil(this.unsubscribe).subscribe(res => {
+        this._api.post('/api/brand/update-brand',tmp).takeUntil(this.unsubscribe).subscribe(res => {
           alert('Cập nhật thành công');
           this.search();
           this.closeModal();
@@ -100,16 +102,16 @@ export class TypeComponent extends BaseComponent implements OnInit {
   }
 
   onDelete(row) {
-    this._api.post('/api/category/delete-category',{category_id:row.category_id}).takeUntil(this.unsubscribe).subscribe(res => {
+    this._api.post('/api/brand/delete-brand',{brand_id:row.brand_id}).takeUntil(this.unsubscribe).subscribe(res => {
       alert('Xóa thành công');
       this.search();
       });
   }
 
   Reset() {
-    this.category = null;
+    this.brand = null;
     this.formdata = this.fb.group({
-      'category_name': ['', Validators.required],
+      'brand_name': ['', Validators.required],
       'desc': ['', Validators.required],
       'url': ['', Validators.required],
     }, {
@@ -121,11 +123,11 @@ export class TypeComponent extends BaseComponent implements OnInit {
     this.doneSetupForm = false;
     this.showUpdateModal = true;
     this.isCreate = true;
-    this.category = null;
+    this.brand = null;
     setTimeout(() => {
       $('#createUserModal').modal('toggle');
       this.formdata = this.fb.group({
-      'category_name': ['',Validators.required],
+      'brand_name': ['',Validators.required],
       'desc': ['',Validators.required],
       'url': ['',Validators.required],
 
@@ -143,13 +145,13 @@ export class TypeComponent extends BaseComponent implements OnInit {
     this.isCreate = false;
     setTimeout(() => {
       $('#createUserModal').modal('toggle');
-      this._api.get('/api/category/get-by-id/'+ row.category_id).takeUntil(this.unsubscribe).subscribe((res:any) => {
-        this.category = res;
+      this._api.get('/api/brand/get-by-id/'+ row.brand_id).takeUntil(this.unsubscribe).subscribe((res:any) => {
+        this.brand = res;
 
           this.formdata = this.fb.group({
-            'category_name': [this.category.category_name,Validators.required],
-            'desc': [this.category.desc,Validators.required],
-            'url': [this.category.url,Validators.required],
+            'brand_name': [this.brand.brand_name,Validators.required],
+            // 'desc': [this.brand.desc,Validators.required],
+            'url': [this.brand.url,Validators.required],
           }, {
 
           });

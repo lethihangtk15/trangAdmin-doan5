@@ -1,14 +1,14 @@
 <div id="sidebar" class="sidebar responsive ace-save-state sidebar-fixed" data-sidebar="true" data-sidebar-scroll="true"
-  data-sidebar-hover="true">
-    <ul class="nav nav-list">
+  data-sidebar-hover="true" style="background-color:#AAAAAA;">
+    <ul class="nav nav-list" style="background-color: #3399FF;">
       <li class="">
         <a routerLink="/">
           <i class="menu-icon fa fa-tachometer"></i>
-          <span class="menu-text"> Bàn làm việc </span>
+          <span class="menu-text"> Ad Cosmetic Beauty</span>
         </a>
 
         <b class="arrow"></b>
-      </li> 
+      </li>
       <ng-container *ngFor="let mn of menus">
         <li class="">
           <a href="#" class="dropdown-toggle">
@@ -23,17 +23,17 @@
                 <a routerLink ="{{m.url}}">
                   <i class="menu-icon fa fa-caret-right"></i>
                    {{m.name}}
-                </a> 
+                </a>
                 <b class="arrow"></b>
               </li>
-            </ng-container> 
+            </ng-container>
           </ul>
-        </li> 
+        </li>
       </ng-container>
-     
+
     </ul><!-- /.nav-list -->
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
       <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-    </div> 
+    </div>
   </div>
